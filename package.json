@@ -1,6 +1,11 @@
 {
 	"name": "type-import",
 	"displayName": "TypeImport",
+	"publisher": "anton-shibayev",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/MacRdy/type-import.git"
+	},
 	"description": "",
 	"version": "0.0.1",
 	"engines": {
@@ -10,14 +15,14 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:type-import.helloWorld"
+		"onCommand:type-import.import"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "type-import.helloWorld",
-				"title": "Hello World"
+				"command": "type-import.import",
+				"title": "Import Type"
 			}
 		]
 	},

@@ -27,6 +27,7 @@
 		]
 	},
 	"scripts": {
+		"make-vsix": "npx vsce package",
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
 		"lint": "eslint src --ext ts",

@@ -1,13 +1,14 @@
 {
 	"name": "type-import",
-	"displayName": "TypeImport",
+	"displayName": "Type Import",
 	"publisher": "anton-shibayev",
 	"keywords": [
 		"refactor",
 		"import",
 		"extract",
 		"type",
-		"alias"
+		"alias",
+		"typescript"
 	],
 	"description": "",
 	"version": "0.0.2",

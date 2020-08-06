@@ -1,6 +1,6 @@
-# TypeImport
+# Type Import (vscode ext)
 
-Fastest type alias extractor ever. VS Code Extension.
+Fastest type alias extractor ever.
 
 ## Usage
 

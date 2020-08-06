@@ -1,4 +1,4 @@
-# Type Import (vscode ext)
+# Type Import
 
 Fastest type alias extractor ever.
 

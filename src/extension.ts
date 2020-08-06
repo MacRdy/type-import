@@ -14,8 +14,9 @@ export function activate(context: vscode.ExtensionContext) {
 			}
 	
 			const selection = editor.selection;
+			const selectionText = editor.document.getText(selection);
 	
-			const fullTypeName = editor.document.getText(selection).trim();
+			const fullTypeName = selectionText.trim();
 	
 			if (!fullTypeName) {
 				showError(2, 'Nothing to import.');
@@ -29,8 +30,8 @@ export function activate(context: vscode.ExtensionContext) {
 	
 			const parts = fullTypeName.split('.');
 	
-			if (parts.some(x => !x)) {
-				showError(3, 'Incorrect type.');
+			if (parts.some(x => !x || x.includes(' '))) {
+				showError(3, 'Invalid type.');
 				return;
 			}
 	
@@ -57,8 +58,21 @@ export function activate(context: vscode.ExtensionContext) {
 					? new vscode.Position(0, 0)
 					: editor.document.positionAt(insertPosition).translate(1, 0);
 	
+				const beginningSpaceCount = selectionText.search(/\S/);
+
+				const endSpaceIndex = selectionText.search(/\s+$/m);
+
+				const endSpaceCount = endSpaceIndex !== -1
+					? selectionText.length - endSpaceIndex
+					: 0;
+
+				const replaceSelection = new vscode.Selection(
+					selection.start.translate(0, beginningSpaceCount),
+					selection.end.translate(0, -endSpaceCount),
+				);
+
 				e.insert(position, importLine);
-				e.replace(selection, alias);
+				e.replace(replaceSelection, alias);
 			});
 		});
 	

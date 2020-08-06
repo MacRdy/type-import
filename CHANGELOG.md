@@ -5,10 +5,12 @@ All notable changes to this project will be documented in this file.
 
 ## [0.0.2] - 2020-08-07
 ### Added
-- Changelog created
+- Error handling
+- Changelog
+- README.md
 
 ### Changed
-- README.md
+- Improved behavior when spaces around
 
 ## [0.0.1] - 2020-08-06
 ### Changed

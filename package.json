@@ -2,17 +2,30 @@
 	"name": "type-import",
 	"displayName": "TypeImport",
 	"publisher": "anton-shibayev",
+	"keywords": [
+		"refactor",
+		"import",
+		"extract",
+		"type",
+		"alias"
+	],
+	"description": "",
+	"version": "0.0.2",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/MacRdy/type-import.git"
 	},
-	"description": "",
-	"version": "0.0.1",
+	"bugs": {
+		"url": "https://github.com/MacRdy/type-import/issues"
+	},
+	"homepage": "https://github.com/MacRdy/type-import/blob/master/README.md",
+	"qna": false,
 	"engines": {
 		"vscode": "^1.47.0"
 	},
 	"categories": [
-		"Other"
+		"Programming Languages",
+		"Snippets"
 	],
 	"activationEvents": [
 		"onCommand:type-import.import"
@@ -27,7 +40,8 @@
 		]
 	},
 	"scripts": {
-		"make-vsix": "npx vsce package",
+		"vsix-package": "npx vsce package",
+		"vsix-publish": "npx vsce publish",
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
 		"lint": "eslint src --ext ts",

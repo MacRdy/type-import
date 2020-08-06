@@ -13,7 +13,6 @@ All notable changes to this project will be documented in this file.
 - Improved behavior when spaces around
 
 ## [0.0.1] - 2020-08-06
-### Changed
 - Initial release
 
 [Unreleased]: https://github.com/MacRdy/type-import/compare/v0.0.2...HEAD

@@ -38,20 +38,20 @@ export function activate(context: vscode.ExtensionContext) {
 			const alias = parts[parts.length - 1];
 	
 			editor.edit(e => {
-				const importLine = `import ${alias} = ${fullTypeName};` + `\n`;
+				const importLine = `import ${alias} = ${fullTypeName};`;
 	
 				let insertPosition = 0;
 	
-				const text = editor.document.getText();
+				const documentContent = editor.document.getText();
 	
-				const importMatches = text.match(/^import.+/gim);
+				const importMatches = documentContent.match(/^import.+/gim);
 	
 				if (importMatches?.length) {
 					const lastImportMatch = importMatches[importMatches.length - 1];
 	
-					const lastImportPosition = text.lastIndexOf(lastImportMatch);
+					const lastImportPosition = documentContent.lastIndexOf(lastImportMatch);
 	
-					insertPosition = text.indexOf(';', lastImportPosition);
+					insertPosition = documentContent.indexOf(';', lastImportPosition);
 				}
 	
 				const position = insertPosition === 0
@@ -71,7 +71,10 @@ export function activate(context: vscode.ExtensionContext) {
 					selection.end.translate(0, -endSpaceCount),
 				);
 
-				e.insert(position, importLine);
+				if (documentContent.indexOf(importLine) === -1) {
+					e.insert(position, importLine + '\n');
+				}
+
 				e.replace(replaceSelection, alias);
 			});
 		});

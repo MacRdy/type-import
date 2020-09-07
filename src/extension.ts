@@ -56,7 +56,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 				const position = insertPosition === 0
 					? new vscode.Position(0, 0)
-					: editor.document.positionAt(insertPosition).translate(1, 0);
+					: new vscode.Position(editor.document.positionAt(insertPosition).translate(1).line, 0);
 
 				const beginningSpaceCount = selectionText.search(/\S/);
 

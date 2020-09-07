@@ -10,8 +10,8 @@
 		"alias",
 		"typescript"
 	],
-	"description": "",
-	"version": "0.0.3",
+	"description": "Type alias extractor.",
+	"version": "0.0.4",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/MacRdy/type-import.git"
